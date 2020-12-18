@@ -33,9 +33,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   my_new_project:
-      # Applies to all files under models/example/
-      staging:
-          materialized: view
-          #if schema doesn`t exist, it will be created by dbt,
-          #in this case the schema created will be named DEV_DB_SCHEMA_STAGING
-          +schema: staging
+      # Applies to all files under models/staging/
+      # The default materialization - view, can be overwritten here
+        staging:
+            materialized: table
+            #if schema doesn`t exist, it will be created by dbt,
+            #in this case the schema created will be named DEV_DB_SCHEMA_STAGING
+            +schema: staging
+        snowflake_sample_data:
+            materialized: view
+

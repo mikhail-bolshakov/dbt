@@ -5,9 +5,18 @@
     This will override configurations stated in dbt_project.yml
 
     Try changing "table" to "view" below
+
+
+    The materialization specified in the project .yml file can be changed here by jinja macros.
+    NOTE: the jinja comment notation is {#text#}, not --.
+
 */
 
-{{ config(materialized='table') }}
+--this guy will not be executed
+{#
+    {{ config(materialized='table') }}
+    #}
+
 
 with source_data as (
 
