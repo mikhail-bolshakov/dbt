@@ -24,6 +24,9 @@ clean-targets:         # directories to be removed by `dbt clean`
     - "target"
     - "dbt_modules"
 
+vars:
+    greater_than_million: 1000000
+
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
